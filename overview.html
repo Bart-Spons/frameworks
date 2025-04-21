@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Test Overview</title>
+        <style>
+            body {
+                font-family: "Segoe UI", sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: #f5f5f5;
+            }
+
+            .progress-container {
+                width: 300px;
+                height: 30px;
+                background: #ddd;
+                border-radius: 15px;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .progress-bar {
+                height: 100%;
+                width: 0%;
+                background: linear-gradient(to right, #00c853, #64dd17);
+                transition: width 0.5s ease;
+            }
+
+            .progress-text {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            button {
+                margin-top: 30px;
+                padding: 10px 20px;
+                background: #007bff;
+                color: white;
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-text" id="progress-text">Progress: 0%</div>
+
+        <button onclick="window.location.href='editor.html'">
+            Go to Editor
+        </button>
+
+        <script>
+            // For now, simulate test results
+            const totalTests = 3;
+            const passedTests = localStorage.getItem("passed") || 0;
+
+            const percentage = Math.round((passedTests / totalTests) * 100);
+            document.getElementById("progress-bar").style.width =
+                percentage + "%";
+            document.getElementById(
+                "progress-text"
+            ).textContent = `Progress: ${percentage}%`;
+        </script>
+    </body>
+</html>
