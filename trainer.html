@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Voortgang kandidaten</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Ubuntu", sans-serif;
+                background: #fff;
+                margin: 0;
+                padding: 40px;
+                color: #272936;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 40px;
+            }
+            th,
+            td {
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            .bar {
+                background: #ddd;
+                border-radius: 20px;
+                overflow: hidden;
+                height: 12px;
+                width: 100%;
+            }
+            .fill {
+                background: #2c73b8;
+                height: 100%;
+            }
+            .center {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Voortgang kandidaten</h2>
+        <table id="progress-table">
+            <tr>
+                <th>Kandidaat</th>
+                <th>React</th>
+                <th>Vue</th>
+                <th>Angular</th>
+                <th class="center">Voltooid</th>
+            </tr>
+        </table>
+
+        <script src="./scripts/login.js"></script>
+        <script>
+            const table = document.getElementById("progress-table");
+
+            Object.keys(localStorage).forEach((key) => {
+                if (key.startsWith("user_")) {
+                    const username = key.replace("user_", "");
+
+                    const react = parseInt(
+                        localStorage.getItem(`${username}_react`) || 0
+                    );
+                    const vue = parseInt(
+                        localStorage.getItem(`${username}_vue`) || 0
+                    );
+                    const angular = parseInt(
+                        localStorage.getItem(`${username}_angular`) || 0
+                    );
+
+                    const percent = (x) => `${x}%`;
+
+                    const isComplete =
+                        react === 100 && vue === 100 && angular === 100;
+
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+      <td>${username}</td>
+      <td><div class="bar"><div class="fill" style="width:${percent(
+          react
+      )}"></div></div></td>
+      <td><div class="bar"><div class="fill" style="width:${percent(
+          vue
+      )}"></div></div></td>
+      <td><div class="bar"><div class="fill" style="width:${percent(
+          angular
+      )}"></div></div></td>
+      <td class="center">${isComplete ? "✓" : "✗"}</td>
+    `;
+
+                    table.appendChild(row);
+                }
+            });
+        </script>
+    </body>
+</html>

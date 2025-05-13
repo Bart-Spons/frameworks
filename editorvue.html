@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Live Vue Editor</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/mode-html.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/theme-monokai.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ext-language_tools.min.js"></script>
+      <script type="module" crossorigin src="/frameworks/assets/editorvue-BtfrcpB3.js"></script>
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-DPNBd-r_.js">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/editorvue-C_K3Ptvo.css">
+    </head>
+    <body>
+        <div class="vue-left-panel">
+            <div
+                id="vue-editor"
+                style="height: 100%; width: 100%; font-size: 14px"
+            ></div>
+            <div class="vue-controls">
+                <div id="vue-error-message"></div>
+                <a href="./overview.html">terug</a>
+                <button id="vue-run">Run</button>
+            </div>
+        </div>
+        <iframe id="vue-preview" sandbox="allow-scripts"></iframe>
+        <div id="vue-test-indicator">
+            <div id="vue-test-count">test 0/3</div>
+            <div id="vue-test-check">✅ Vue detected</div>
+        </div>
+    </body>
+</html>

@@ -1,77 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
     <head>
         <meta charset="UTF-8" />
-        <title>Test Overview</title>
-        <style>
-            body {
-                font-family: "Segoe UI", sans-serif;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                background-color: #f5f5f5;
-            }
-
-            .progress-container {
-                width: 300px;
-                height: 30px;
-                background: #ddd;
-                border-radius: 15px;
-                overflow: hidden;
-                margin-bottom: 20px;
-            }
-
-            .progress-bar {
-                height: 100%;
-                width: 0%;
-                background: linear-gradient(to right, #00c853, #64dd17);
-                transition: width 0.5s ease;
-            }
-
-            .progress-text {
-                font-size: 18px;
-                font-weight: bold;
-            }
-
-            button {
-                margin-top: 30px;
-                padding: 10px 20px;
-                background: #007bff;
-                color: white;
-                font-weight: bold;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-            button:hover {
-                background-color: #0056b3;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Framework voortgang</title>
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/overview-C_KasG4H.css">
     </head>
     <body>
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <div class="progress-text" id="progress-text">Progress: 0%</div>
+        <div class="frame">
+            <div class="frame-header">Framework Learning</div>
+            <div class="frame-content">
+                <h2>Frameworks</h2>
+                <p>
+                    Maak een ‘todo lijst’ in alle onderstaande frameworks.<br />
+                    De volgorde maakt niet uit. Alle drie de frameworks moeten
+                    gebruikt worden.
+                </p>
 
-        <button onclick="window.location.href='editor.html'">
-            Go to Editor
-        </button>
+                <a href="./editor.html">
+                    <div class="course-box">
+                        <div class="label" id="react-label">
+                            Course <strong>React</strong>
+                        </div>
+                        <div class="progress-wrapper">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="react-bar"></div>
+                            </div>
+                            <span class="percent" id="react-percent">0%</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="./angular.html">
+                    <div class="course-box">
+                        <div class="label" id="angular-label">
+                            Course <strong>Angular</strong>
+                        </div>
+                        <div class="progress-wrapper">
+                            <div class="progress-track">
+                                <div
+                                    class="progress-fill"
+                                    id="angular-bar"
+                                ></div>
+                            </div>
+                            <span class="percent" id="angular-percent">0%</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="./editorvue.html">
+                    <div class="course-box">
+                        <div class="label" id="vue-label">
+                            Course <strong>Vue</strong>
+                        </div>
+                        <div class="progress-wrapper">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="vue-bar"></div>
+                            </div>
+                            <span class="percent" id="vue-percent">0%</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="footer">
+                <div class="btn-back">←</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="total-progress"></div>
+                </div>
+                <button class="btn-next" id="next-button" disabled>
+                    <a href="./editor.html">volgende</a>
+                </button>
+            </div>
+        </div>
 
         <script>
-            // For now, simulate test results
-            const totalTests = 3;
-            const passedTests = localStorage.getItem("passed") || 0;
+            const user = localStorage.getItem("loggedInUser");
+            const react = parseInt(
+                localStorage.getItem(`${user}_react`) || 0,
+                10
+            );
+            const vue = parseInt(localStorage.getItem(`${user}_vue`) || 0, 10);
+            const angular = parseInt(
+                localStorage.getItem(`${user}_angular`) || 0,
+                10
+            );
 
-            const percentage = Math.round((passedTests / totalTests) * 100);
-            document.getElementById("progress-bar").style.width =
-                percentage + "%";
-            document.getElementById(
-                "progress-text"
-            ).textContent = `Progress: ${percentage}%`;
+            const updateBar = (id, value) => {
+                document.getElementById(id + "-bar").style.width = value + "%";
+                document.getElementById(id + "-percent").textContent =
+                    value + "%";
+
+                if (value === 100) {
+                    document.getElementById(
+                        id + "-label"
+                    ).innerHTML = `✔️ Course <strong>${
+                        id.charAt(0).toUpperCase() + id.slice(1)
+                    }</strong>`;
+                }
+            };
+
+            updateBar("react", react);
+            updateBar("vue", vue);
+            updateBar("angular", angular);
+
+            const average = Math.round((react + vue + angular) / 3);
+            document.getElementById("total-progress").style.width =
+                average + "%";
+
+            const nextBtn = document.getElementById("next-button");
+            if (react === 100 && vue === 100 && angular === 100) {
+                nextBtn.removeAttribute("disabled");
+                nextBtn.classList.add("checked");
+            }
         </script>
     </body>
 </html>
