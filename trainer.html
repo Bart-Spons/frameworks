@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html lang="nl">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Voortgang kandidaten</title>
         <link
-            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&amp;display=swap"
             rel="stylesheet"
         />
         <style>
@@ -43,16 +42,18 @@
             }
         </style>
     </head>
-    <body>
+    <body style="overscroll-behavior-x: auto">
         <h2>Voortgang kandidaten</h2>
         <table id="progress-table">
-            <tr>
-                <th>Kandidaat</th>
-                <th>React</th>
-                <th>Vue</th>
-                <th>Angular</th>
-                <th class="center">Voltooid</th>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>Kandidaat</th>
+                    <th>React</th>
+                    <th>Vue</th>
+                    <th>Angular</th>
+                    <th class="center">Voltooid</th>
+                </tr>
+            </tbody>
         </table>
 
         <script src="./scripts/login.js"></script>
@@ -80,18 +81,18 @@
 
                     const row = document.createElement("tr");
                     row.innerHTML = `
-      <td>${username}</td>
-      <td><div class="bar"><div class="fill" style="width:${percent(
-          react
-      )}"></div></div></td>
-      <td><div class="bar"><div class="fill" style="width:${percent(
-          vue
-      )}"></div></div></td>
-      <td><div class="bar"><div class="fill" style="width:${percent(
-          angular
-      )}"></div></div></td>
-      <td class="center">${isComplete ? "✓" : "✗"}</td>
-    `;
+  <td>${username}</td>
+  <td><div class="bar"><div class="fill" style="width:${percent(
+      react
+  )}"></div></div></td>
+  <td><div class="bar"><div class="fill" style="width:${percent(
+      vue
+  )}"></div></div></td>
+  <td><div class="bar"><div class="fill" style="width:${percent(
+      angular
+  )}"></div></div></td>
+  <td class="center">${isComplete ? "✓" : "✗"}</td>
+`;
 
                     table.appendChild(row);
                 }
