@@ -9,7 +9,11 @@ import{b as d}from"./browser-DgiB8jYR.js";const o=ace.edit("vue-editor");o.setTh
     }
   }
   Vue.createApp(VueApp).mount('#app');
-<\/script>`,-1);o.session.on("change",()=>{localStorage.setItem(`vueEditorCode_${u}`,o.getValue())});const w=()=>o.getValue(),m=document.getElementById("vue-preview");let p=!1;const E=async t=>{let e=t;const s=/<script>/,c=/<\/script>/,n=s.exec(e),r=c.exec(e),a=e.substring(n.index+n[0].length,r.index);e=e.slice(0,n.index)+e.slice(r.index+r[0].length);const C=(await S(a)).code,x=/<style>/,V=/<\/style>/,i=x.exec(e),l=V.exec(e),I=e.substring(i.index+i[0].length,l.index);return e=e.slice(0,i.index)+e.slice(l.index+l[0].length),{template:e.trim(),script:C,style:I}};async function S(t){return p||(await d.initialize({wasmURL:"https://unpkg.com/esbuild-wasm@0.14.54/esbuild.wasm",worker:!0}),p=!0),await d.transform(t,{loader:"tsx",target:"es2015"})}const f=(t,e,s)=>`
+<\/script>
+<style>
+    
+</style>
+`,-1);o.session.on("change",()=>{localStorage.setItem(`vueEditorCode_${u}`,o.getValue())});const w=()=>o.getValue(),m=document.getElementById("vue-preview");let p=!1;const E=async t=>{let e=t;const s=/<script>/,c=/<\/script>/,n=s.exec(e),r=c.exec(e),a=e.substring(n.index+n[0].length,r.index);e=e.slice(0,n.index)+e.slice(r.index+r[0].length);const C=(await S(a)).code,x=/<style>/,V=/<\/style>/,i=x.exec(e),l=V.exec(e),I=e.substring(i.index+i[0].length,l.index);return e=e.slice(0,i.index)+e.slice(l.index+l[0].length),{template:e.trim(),script:C,style:I}};async function S(t){return p||(await d.initialize({wasmURL:"https://unpkg.com/esbuild-wasm@0.14.54/esbuild.wasm",worker:!0}),p=!0),await d.transform(t,{loader:"tsx",target:"es2015"})}const f=(t,e,s)=>`
   <html>
     <head>
       <script src="https://unpkg.com/vue@3.2.0/dist/vue.global.js"><\/script>
