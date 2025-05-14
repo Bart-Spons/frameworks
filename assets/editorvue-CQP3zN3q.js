@@ -1,4 +1,4 @@
-import{b as d}from"./browser-DgiB8jYR.js";const o=ace.edit("vue-editor");o.setTheme("ace/theme/github");o.session.setMode("ace/mode/html");o.setOptions({enableBasicAutocompletion:!0,enableLiveAutocompletion:!0,showPrintMargin:!1});const u=localStorage.getItem("loggedInUser"),b=localStorage.getItem(`vueEditorCode_${u}`);o.setValue(b||`<!-- Vue here -->
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{b as d}from"./browser-j4sNyIA5.js";const o=ace.edit("vue-editor");o.setTheme("ace/theme/github");o.session.setMode("ace/mode/html");o.setOptions({enableBasicAutocompletion:!0,enableLiveAutocompletion:!0,showPrintMargin:!1});const u=localStorage.getItem("loggedInUser"),b=localStorage.getItem(`vueEditorCode_${u}`);o.setValue(b||`<!-- Vue here -->
 <div id="app">{{ message }}</div>
 <script>
   const VueApp = {
