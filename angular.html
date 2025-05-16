@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Angular opdracht</title>
+        <style>
+            body {
+                font-family: "Segoe UI", sans-serif;
+                background: #f4f4f4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+            }
+
+            iframe {
+                width: 100%;
+                height: 45rem;
+                border: none;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .button-group {
+                margin: 16px;
+                display: flex;
+                gap: 12px;
+            }
+
+            button {
+                padding: 10px 16px;
+                font-size: 14px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            #done {
+                background-color: #1976d2;
+                color: white;
+            }
+
+            #solution {
+                background-color: white;
+                color: black;
+                border: 1px solid #ccc;
+            }
+
+            .navigation {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                max-width: 1024px;
+                margin: 24px;
+            }
+
+            .navigation button {
+                padding: 10px 20px;
+                font-size: 14px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+            }
+
+            #back-button {
+                background-color: white;
+                border: 1px solid #ccc;
+            }
+
+            #next-button {
+                background-color: #0056d2;
+                color: white;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <iframe
+            id="editorFrame"
+            src="https://stackblitz.com/edit/stackblitz-starters-b7qr4bbs?embed=1&file=src%2Fmain.ts&view=both&hideExplorer=1&hideNavigation=1&ctl=0"
+            allowfullscreen
+        ></iframe>
+
+        <div class="button-group">
+            <button id="solution" onclick="showSolution()">Solution</button>
+            <button id="done" onclick="markAsDone()">Opdracht voltooid</button>
+        </div>
+
+        <div class="navigation">
+            <button id="back-button">
+                <a href="./overview.html">terug</a>
+            </button>
+            <button id="next-button">
+                <a href="./overview.html">volgende</a>
+            </button>
+        </div>
+
+        <script>
+            function markAsDone() {
+                const username = localStorage.getItem("loggedInUser");
+                if (username) {
+                    localStorage.setItem(`${username}_angular`, "100");
+                    alert(
+                        "Voortgang opgeslagen! Je kunt dit nu terugzien in het overzicht."
+                    );
+                } else {
+                    alert("Geen gebruiker ingelogd.");
+                }
+            }
+
+            function showSolution() {
+                const iframe = document.getElementById("editorFrame");
+                iframe.src =
+                    "https://stackblitz.com/edit/stackblitz-starters-yddvlarj?embed=1&file=src%2Fmain.ts&view=both&hideExplorer=1&hideNavigation=1&ctl=0";
+            }
+        </script>
+    </body>
+</html>
