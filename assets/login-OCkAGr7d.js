@@ -1,0 +1,7 @@
+const l=[{username:"bart",password:"1234"},{username:"capgemini",password:"academy2024"},{username:"kyle",password:"1234"},{username:"laura",password:"coach"},{username:"trainer",password:"admin"}];document.getElementById("loginButton").addEventListener("click",c);function c(){const t=document.getElementById("username").value.trim(),a=document.getElementById("password").value.trim(),n=document.getElementById("error-msg"),e=l.find(r=>r.username===t&&r.password===a);e?(localStorage.setItem("loggedInUser",e.username),localStorage.setItem(`user_${e.username}`,"true"),e.username==="trainer"?window.location.href="./trainer.html":window.location.href="./language.html"):n.textContent="Ongeldige gebruikersnaam of wachtwoord."}const i=["bart","kyle","capgemini","laura"],g=document.getElementById("overzicht-body");i.forEach(t=>{const a=parseInt(localStorage.getItem(`${t}_react`)||"0"),n=parseInt(localStorage.getItem(`${t}_vue`)||"0"),e=parseInt(localStorage.getItem(`${t}_angular`)||"0"),o=[a,n,e].filter(d=>d>=100).length===3?"✓":"✗",s=document.createElement("tr");s.innerHTML=`
+    <td>${t}</td>
+    <td><div class="balk"><div class="voortgang" style="width:${a}%"></div></div></td>
+    <td><div class="balk"><div class="voortgang" style="width:${n}%"></div></div></td>
+    <td><div class="balk"><div class="voortgang" style="width:${e}%"></div></div></td>
+    <td>${o}</td>
+  `,g.appendChild(s)});
