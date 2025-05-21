@@ -8,10 +8,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/mode-jsx.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/theme-monokai.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ext-language_tools.min.js"></script>
-      <script type="module" crossorigin src="/frameworks/assets/editor--EJ9QCsj.js"></script>
+      <script type="module" crossorigin src="/frameworks/assets/editor-Bssq3LKB.js"></script>
       <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
-      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-tnRL7c2L.js">
-      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-DG6HEW4u.css">
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-w0s3kXIP.js">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-DakrNYe4.css">
     </head>
     <body>
         <div class="left-panel">
@@ -23,8 +23,10 @@
             <div class="controls">
                 <p>console</p>
                 <div class="console">
-                    <button id="solution">Solution</button>
-                    <button id="run">Run</button>
+                    <button id="solution">
+                        <i class="fa fa-eye"></i> Solution
+                    </button>
+                    <button id="run"><i class="fa fa-play"></i> Run</button>
                 </div>
             </div>
             <div id="error-message">test</div>
@@ -32,7 +34,76 @@
 
         <div class="right-panel">
             <!-- <div id="information">test</div> -->
-            <iframe id="preview" sandbox="allow-scripts"></iframe>
+            <!-- a tab to show eater the iframe or a diffrent screen -->
+            <div id="information">
+                <a href="#" id="show-a" class="active">Instructions</a>
+                <a href="#" id="show-b">Preview (browser)</a>
+                <div id="info-indicator"></div>
+            </div>
+
+            <div id="preview-container">
+                <div id="a-content">
+                    <h2>📝 De opdracht</h2>
+                    <p>
+                        Maak een <strong>React-component</strong> die een lijst
+                        van taken (todos) toont.<br />
+                        Elke taak bevat een tekst en een
+                        <code>liked</code>-eigenschap (<code>true</code> of
+                        <code>false</code>).
+                    </p>
+                    <ul>
+                        <li>Correcte <strong>JSX-syntaxis</strong> (React)</li>
+                        <li>
+                            Toon een <code>&lt;ul&gt;</code> met
+                            <code>&lt;li&gt;</code> items
+                        </li>
+                        <li>
+                            Gebruik een boolean (<code>true</code> /
+                            <code>false</code>) per taak
+                        </li>
+                        <li>Laat een icon zien bij <code>liked: true</code></li>
+                        <li>
+                            Zet bovenaan een tekst met het woord
+                            <strong>"like"</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <iframe
+                    id="preview"
+                    sandbox="allow-scripts"
+                    style="display: none"
+                ></iframe>
+            </div>
+
+            <script>
+                const tabs = document.querySelectorAll("#information a");
+                const indicator = document.getElementById("info-indicator");
+                const contentA = document.getElementById("a-content");
+                const preview = document.getElementById("preview");
+
+                tabs.forEach((tab, index) => {
+                    tab.addEventListener("click", (e) => {
+                        e.preventDefault();
+
+                        // Toggle active class
+                        tabs.forEach((el) => el.classList.remove("active"));
+                        tab.classList.add("active");
+
+                        // Toggle content display
+                        if (index === 0) {
+                            contentA.style.display = "block";
+                            preview.style.display = "none";
+                            indicator.style.left = "0%";
+                        } else {
+                            contentA.style.display = "none";
+                            preview.style.display = "block";
+                            indicator.style.left = "50%";
+                        }
+                    });
+                });
+            </script>
+
             <div id="test-count">Test 0/5</div>
             <div id="test-indicator">
                 <div id="test-check">✅ JSX detected</div>

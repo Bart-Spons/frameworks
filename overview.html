@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Framework voortgang</title>
-      <link rel="stylesheet" crossorigin href="/frameworks/assets/overview-QEXA28hr.css">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/overview-NSBXs9EU.css">
     </head>
     <body>
         <div class="frame">
@@ -14,16 +14,12 @@
             </div>
             <div class="frame-content">
                 <h2>Frameworks</h2>
-                <p>
-                    Maak een ‘todo lijst’ in alle onderstaande frameworks.<br />
-                    De volgorde maakt niet uit. Alle drie de frameworks moeten
-                    gebruikt worden.
-                </p>
+                <p>Maak een ‘like’ functie in alle onderstaande frameworks.</p>
 
                 <a href="./editor.html">
                     <div class="course-box">
                         <div class="label" id="react-label">
-                            Course <strong>React</strong>
+                            <strong>React</strong>
                         </div>
                         <div class="progress-wrapper">
                             <div class="progress-track">
@@ -37,7 +33,7 @@
                 <a href="./angular.html">
                     <div class="course-box">
                         <div class="label" id="angular-label">
-                            Course <strong>Angular</strong>
+                            <strong>Angular</strong>
                         </div>
                         <div class="progress-wrapper">
                             <div class="progress-track">
@@ -54,7 +50,7 @@
                 <a href="./editorvue.html">
                     <div class="course-box">
                         <div class="label" id="vue-label">
-                            Course <strong>Vue</strong>
+                            <strong>Vue</strong>
                         </div>
                         <div class="progress-wrapper">
                             <div class="progress-track">
@@ -71,7 +67,10 @@
                     <a href="niveau.html" class="back-arrow">←</a>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-bar-fill" id="total-progress"></div>
+                    <div
+                        class="progress-bar-fill progress-bar-fill-4"
+                        id="total-progress"
+                    ></div>
                 </div>
                 <button class="btn-next" id="next-button" disabled>
                     <a href="./endscreen.html">volgende</a>
@@ -99,7 +98,7 @@
                 if (value === 100) {
                     document.getElementById(
                         id + "-label"
-                    ).innerHTML = `✔️ Course <strong>${
+                    ).innerHTML = `✔️<strong>${
                         id.charAt(0).toUpperCase() + id.slice(1)
                     }</strong>`;
                 }
@@ -109,7 +108,7 @@
             updateBar("vue", vue);
             updateBar("angular", angular);
 
-            const average = Math.round((react + vue + angular) / 3);
+            const average = Math.round((react + vue + angular) / 4 + 25);
             document.getElementById("total-progress").style.width =
                 average + "%";
 
