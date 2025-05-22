@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Framework voortgang</title>
+      <script type="module" crossorigin src="/frameworks/assets/overview-BH-aZXWZ.js"></script>
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
       <link rel="stylesheet" crossorigin href="/frameworks/assets/overview-NSBXs9EU.css">
     </head>
     <body>
@@ -78,45 +80,5 @@
             </div>
         </div>
 
-        <script>
-            const user = localStorage.getItem("loggedInUser");
-            const react = parseInt(
-                localStorage.getItem(`${user}_react`) || 0,
-                10
-            );
-            const vue = parseInt(localStorage.getItem(`${user}_vue`) || 0, 10);
-            const angular = parseInt(
-                localStorage.getItem(`${user}_angular`) || 0,
-                10
-            );
-
-            const updateBar = (id, value) => {
-                document.getElementById(id + "-bar").style.width = value + "%";
-                document.getElementById(id + "-percent").textContent =
-                    value + "%";
-
-                if (value === 100) {
-                    document.getElementById(
-                        id + "-label"
-                    ).innerHTML = `✔️<strong>${
-                        id.charAt(0).toUpperCase() + id.slice(1)
-                    }</strong>`;
-                }
-            };
-
-            updateBar("react", react);
-            updateBar("vue", vue);
-            updateBar("angular", angular);
-
-            const average = Math.round((react + vue + angular) / 4 + 25);
-            document.getElementById("total-progress").style.width =
-                average + "%";
-
-            const nextBtn = document.getElementById("next-button");
-            if (react === 100 && vue === 100 && angular === 100) {
-                nextBtn.removeAttribute("disabled");
-                nextBtn.classList.add("checked");
-            }
-        </script>
     </body>
 </html>

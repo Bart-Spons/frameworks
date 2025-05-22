@@ -2,18 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Live JSX Editor</title>
-
+        <title>React Editor</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ace.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/mode-jsx.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/theme-monokai.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ext-language_tools.min.js"></script>
-      <script type="module" crossorigin src="/frameworks/assets/editor-CbScNpwZ.js"></script>
+      <script type="module" crossorigin src="/frameworks/assets/editor-BHbNOLhD.js"></script>
       <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
       <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-8IyP0l0z.js">
       <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-nFOykmJc.css">
     </head>
     <body>
+        <!-- Pop over screen -->
         <div id="intro-overlay" class="overlay">
             <div class="overlay-box">
                 <h2>👋 Welkom!</h2>
@@ -34,12 +34,14 @@
             </div>
         </div>
 
+        <!-- editor -->
         <div class="left-panel">
             <div
                 id="editor"
                 style="height: 73.5%; width: 100%; font-size: 14px"
             ></div>
 
+            <!-- controls -->
             <div class="controls">
                 <p>console</p>
                 <div class="console">
@@ -55,9 +57,8 @@
             <div id="error-message">test</div>
         </div>
 
+        <!-- assignment / preview -->
         <div class="right-panel">
-            <!-- <div id="information">test</div> -->
-            <!-- a tab to show eater the iframe or a diffrent screen -->
             <div id="information">
                 <a href="#" id="show-a" class="active">Instructions</a>
                 <a href="#" id="show-b">Preview (browser)</a>
@@ -103,40 +104,13 @@
                 </div>
             </div>
 
-            <script>
-                const tabs = document.querySelectorAll("#information a");
-                const indicator = document.getElementById("info-indicator");
-                const contentA = document.getElementById("a-content");
-                //const preview = document.getElementById("preview");
-                const previewWrapper =
-                    document.getElementById("preview-wrapper");
-
-                tabs.forEach((tab, index) => {
-                    tab.addEventListener("click", (e) => {
-                        e.preventDefault();
-
-                        // Toggle active class
-                        tabs.forEach((el) => el.classList.remove("active"));
-                        tab.classList.add("active");
-
-                        // Toggle content display
-                        if (index === 0) {
-                            contentA.style.display = "block";
-                            previewWrapper.style.display = "none";
-                            indicator.style.left = "0%";
-                        } else {
-                            contentA.style.display = "none";
-                            previewWrapper.style.display = "block";
-                            indicator.style.left = "50%";
-                        }
-                    });
-                });
-            </script>
-
+            <!-- test counter -->
             <div id="test-count">Test 0/5</div>
             <div id="test-indicator">
                 <div id="test-check">✅ JSX detected</div>
             </div>
+
+            <!-- navigation -->
             <div class="navigation">
                 <button id="back-button">
                     <a href="./overview.html">terug</a>
