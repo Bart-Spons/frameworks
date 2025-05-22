@@ -8,12 +8,32 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/mode-jsx.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/theme-monokai.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ext-language_tools.min.js"></script>
-      <script type="module" crossorigin src="/frameworks/assets/editor-Bssq3LKB.js"></script>
+      <script type="module" crossorigin src="/frameworks/assets/editor-CbScNpwZ.js"></script>
       <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
-      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-w0s3kXIP.js">
-      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-DakrNYe4.css">
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-8IyP0l0z.js">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-nFOykmJc.css">
     </head>
     <body>
+        <div id="intro-overlay" class="overlay">
+            <div class="overlay-box">
+                <h2>👋 Welkom!</h2>
+                <p>In deze opdracht ga je oefenen met React.</p>
+                <ul>
+                    <li>✏️ Schrijf je code links in de editor</li>
+                    <li>📜 Lees de opdracht rechts bij "Instructions"</li>
+                    <li>📱 Bekijk je resultaat via "Preview (browser)"</li>
+                    <li>✅ Onderaan zie je of je alle tests hebt gehaald</li>
+                    <!-- error melding -->
+                    <li>
+                        ❌ Als je een foutmelding krijgt, is deze in de console
+                        te zien
+                    </li>
+                    <li>🔄 Klik op "Run" om je code uit te voeren</li>
+                </ul>
+                <button id="overlay-close">Start</button>
+            </div>
+        </div>
+
         <div class="left-panel">
             <div
                 id="editor"
@@ -23,6 +43,9 @@
             <div class="controls">
                 <p>console</p>
                 <div class="console">
+                    <button id="info">
+                        <i class="fa fa-info-circle"></i> ?
+                    </button>
                     <button id="solution">
                         <i class="fa fa-eye"></i> Solution
                     </button>
@@ -68,19 +91,25 @@
                         </li>
                     </ul>
                 </div>
-
-                <iframe
-                    id="preview"
-                    sandbox="allow-scripts"
+                <div
+                    class="iphone-mockup"
+                    id="preview-wrapper"
                     style="display: none"
-                ></iframe>
+                >
+                    <div class="iphone-notch"></div>
+                    <div class="iphone-screen">
+                        <iframe id="preview" sandbox="allow-scripts"></iframe>
+                    </div>
+                </div>
             </div>
 
             <script>
                 const tabs = document.querySelectorAll("#information a");
                 const indicator = document.getElementById("info-indicator");
                 const contentA = document.getElementById("a-content");
-                const preview = document.getElementById("preview");
+                //const preview = document.getElementById("preview");
+                const previewWrapper =
+                    document.getElementById("preview-wrapper");
 
                 tabs.forEach((tab, index) => {
                     tab.addEventListener("click", (e) => {
@@ -93,11 +122,11 @@
                         // Toggle content display
                         if (index === 0) {
                             contentA.style.display = "block";
-                            preview.style.display = "none";
+                            previewWrapper.style.display = "none";
                             indicator.style.left = "0%";
                         } else {
                             contentA.style.display = "none";
-                            preview.style.display = "block";
+                            previewWrapper.style.display = "block";
                             indicator.style.left = "50%";
                         }
                     });

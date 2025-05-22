@@ -3,81 +3,34 @@
     <head>
         <meta charset="UTF-8" />
         <title>Angular opdracht</title>
-        <style>
-            body {
-                font-family: "Segoe UI", sans-serif;
-                background: #f4f4f4;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 0;
-            }
-
-            iframe {
-                width: 100%;
-                height: 45rem;
-                border: none;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .button-group {
-                margin: 16px;
-                display: flex;
-                gap: 12px;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 14px;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-            }
-
-            #done {
-                background-color: #1976d2;
-                color: white;
-            }
-
-            #solution {
-                background-color: white;
-                color: black;
-                border: 1px solid #ccc;
-            }
-
-            .navigation {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-                max-width: 1024px;
-                margin: 24px;
-            }
-
-            .navigation button {
-                padding: 10px 20px;
-                font-size: 14px;
-                border-radius: 8px;
-                border: none;
-                cursor: pointer;
-            }
-
-            #back-button {
-                background-color: white;
-                border: 1px solid #ccc;
-            }
-
-            #next-button {
-                background-color: #0056d2;
-                color: white;
-            }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script type="module" crossorigin src="/frameworks/assets/angular-e8aRIyC3.js"></script>
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/angular-C1ReDapF.css">
     </head>
     <body>
+        <div id="intro-overlay" class="overlay">
+            <div class="overlay-box">
+                <h2>👋 Welkom bij Angular</h2>
+                <p>Deze pagina ziet anders uit dan de React en Vue.</p>
+                <ul>
+                    <li>
+                        🛠️ De opdracht is in een iframe van Stackblitz (moet
+                        even inladen)
+                    </li>
+                    <li>📜 De opdracht staat in comments in de code</li>
+                    <li>
+                        📝 Heb je de opdracht werkend? Laat deze dan aan je
+                        trainer zien
+                    </li>
+                    <li>
+                        ✅ Als je de opdracht hebt laten zien, klik dan op de
+                        knop "Opdracht voltooid"
+                    </li>
+                </ul>
+                <button id="overlay-close">Start</button>
+            </div>
+        </div>
         <iframe
             id="editorFrame"
             src="https://stackblitz.com/edit/stackblitz-starters-b7qr4bbs?embed=1&file=src%2Fmain.ts&view=both&hideExplorer=1&hideNavigation=1&ctl=0"
@@ -98,24 +51,5 @@
             </button>
         </div>
 
-        <script>
-            function markAsDone() {
-                const username = localStorage.getItem("loggedInUser");
-                if (username) {
-                    localStorage.setItem(`${username}_angular`, "100");
-                    alert(
-                        "Voortgang opgeslagen! Je kunt dit nu terugzien in het overzicht."
-                    );
-                } else {
-                    alert("Geen gebruiker ingelogd.");
-                }
-            }
-
-            function showSolution() {
-                const iframe = document.getElementById("editorFrame");
-                iframe.src =
-                    "https://stackblitz.com/edit/stackblitz-starters-yddvlarj?embed=1&file=src%2Fmain.ts&view=both&hideExplorer=1&hideNavigation=1&ctl=0";
-            }
-        </script>
     </body>
 </html>
