@@ -1,0 +1,7 @@
+const l=[{username:"bart",password:"1234"},{username:"capgemini",password:"academy2024"},{username:"kyle",password:"1234"},{username:"laura",password:"coach"},{username:"thijmen",password:"1234"},{username:"ali",password:"zilla"},{username:"trainer",password:"admin"}];document.getElementById("loginButton").addEventListener("click",i);function i(){const t=document.getElementById("username").value.trim(),a=document.getElementById("password").value.trim(),s=document.getElementById("error-msg"),e=l.find(r=>r.username===t&&r.password===a);e?(localStorage.setItem("loggedInUser",e.username),localStorage.setItem(`user_${e.username}`,"true"),e.username==="trainer"?window.location.href="./trainer.html":window.location.href="./language.html"):s.textContent="Ongeldige gebruikersnaam of wachtwoord."}const c=["bart","kyle","capgemini","laura"],m=document.getElementById("overzicht-body");c.forEach(t=>{const a=parseInt(localStorage.getItem(`${t}_react`)||"0"),s=parseInt(localStorage.getItem(`${t}_vue`)||"0"),e=parseInt(localStorage.getItem(`${t}_angular`)||"0"),o=[a,s,e].filter(d=>d>=100).length===3?"✓":"✗",n=document.createElement("tr");n.innerHTML=`
+    <td>${t}</td>
+    <td><div class="balk"><div class="voortgang" style="width:${a}%"></div></div></td>
+    <td><div class="balk"><div class="voortgang" style="width:${s}%"></div></div></td>
+    <td><div class="balk"><div class="voortgang" style="width:${e}%"></div></div></td>
+    <td>${o}</td>
+  `,m.appendChild(n)});
