@@ -3,18 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <title>React Editor</title>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ace.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/mode-jsx.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/theme-monokai.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.23.4/ext-language_tools.min.js"></script>
 
-      <script type="module" crossorigin src="/frameworks/assets/editor-CBVrBaDM.js"></script>
+      <script type="module" crossorigin src="/frameworks/assets/editor-Er1JdWiE.js"></script>
       <link rel="modulepreload" crossorigin href="/frameworks/assets/modulepreload-polyfill-B5Qt9EMX.js">
-      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-tBeoAdho.js">
+      <link rel="modulepreload" crossorigin href="/frameworks/assets/browser-DrZu2iZ-.js">
       <link rel="modulepreload" crossorigin href="/frameworks/assets/firebase-hupVllJr.js">
-      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-DY_8BnWG.css">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/browser-DA9qkyY8.css">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/accessibility-VbETW5Xv.css">
+      <link rel="stylesheet" crossorigin href="/frameworks/assets/style-BlatBx2D.css">
     </head>
     <body>
+        <h1 class="visually-hidden">React Editor</h1>
         <!-- Pop over screen -->
         <div id="intro-overlay" class="overlay">
             <div class="overlay-box">
@@ -122,13 +126,10 @@
 
             <!-- navigation -->
             <div class="navigation">
-                <a href="./overview.html">
-                    <button id="back-button">terug</button>
-                </a>
 
-                <a href="./overview.html">
-                    <button id="next-button">volgende</button>
-                </a>
+                <a href="./overview.html" class="nav-button" id="back-button">terug</a>
+                <a href="./overview.html" class="nav-button" id="next-button">volgende</a>
+
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{b as m}from"./browser-tBeoAdho.js";import{g as $,s as x}from"./firebase-hupVllJr.js";const l=localStorage.getItem("loggedInUser")||"guest",o=ace.edit("vue-editor");o.setTheme("ace/theme/chrome");o.session.setMode("ace/mode/html");o.setOptions({enableBasicAutocompletion:!0,enableLiveAutocompletion:!0,showPrintMargin:!1});const A=`<!-- TODO: Toon een tekst waarin het woord "like" voorkomt -->
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{b as m}from"./browser-DrZu2iZ-.js";import{g as $,s as x}from"./firebase-hupVllJr.js";const l=localStorage.getItem("loggedInUser")||"guest",o=ace.edit("vue-editor");o.setTheme("ace/theme/chrome");o.session.setMode("ace/mode/html");o.setOptions({enableBasicAutocompletion:!0,enableLiveAutocompletion:!0,showPrintMargin:!1});const A=`<!-- TODO: Toon een tekst waarin het woord "like" voorkomt -->
 <div id="app">
   {{ message }}
 
