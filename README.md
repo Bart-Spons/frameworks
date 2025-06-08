@@ -15,7 +15,7 @@ Een interactieve trainingstool voor junior front-end developers binnen Capgemini
 
 1. Clone deze repository:
    ```bash
-   git clone https://github.com/jouw-gebruikersnaam/framework-learning.git
+   git clone https://github.com/Bart-Spons/frameworks.git
    ```
 
 2. Navigeer naar de projectmap:
@@ -44,11 +44,6 @@ npm run build
 ```
 
 De geoptimaliseerde bestanden worden geplaatst in de `dist`-map. Deze map kun je vervolgens uploaden naar GitHub Pages of een andere hostingprovider.
-
-## 🌍 Live versie
-
-De applicatie is live te bekijken via:  
-👉 [https://jouw-gebruikersnaam.github.io/framework-learning](https://jouw-gebruikersnaam.github.io/framework-learning)
 
 ## 📁 Gebouwd met
 
