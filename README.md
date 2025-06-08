@@ -2,6 +2,18 @@
 
 Een interactieve trainingstool voor junior front-end developers binnen Capgemini. Gebruikers leren hoe ze met verschillende front-end frameworks werken (React, Vue, Angular) via opdrachten en live feedback in de browser.
 
+## Testen
+
+Wil je de applicatie zelf proberen?
+
+Gebruik dan de volgende testgegevens om in te loggen:
+
+**Gebruikersnaam:** `tester`  
+**Wachtwoord:** `enjoy`
+
+🧪 Je kunt de opdrachten doorlopen in React, Vue en Angular. Je voortgang wordt opgeslagen in de database (alleen zichtbaar voor jou en de trainer in testmodus).
+
+
 ## 🔧 Features
 
 - ✅ Live code editor met foutmeldingen en testresultaten  
